@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="TipoProfesor">
+    <xs:sequence>
+      <xs:element name="codigoprofesor" type="xs:string"/>
+      <xs:element name="nombreprofesor" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TipoProfesores">
+    <xs:sequence>
+      <xs:element name="profesor" type="TipoProfesor" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TipoCentro">
+    <xs:sequence>
+      <xs:element name="codigocentro" type="xs:string"/>
+      <xs:element name="nombrecentro" type="xs:string"/>
+      <xs:element name="direccion" type="xs:string"/>
+      <xs:element name="director" type="TipoProfesor"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TipoDatoscentro">
+    <xs:sequence>
+      <xs:element name="centro" type="TipoCentro"/>
+      <xs:element name="profesores" type="TipoProfesores"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="datoscentro" type="TipoDatoscentro"/>
+</xs:schema>
